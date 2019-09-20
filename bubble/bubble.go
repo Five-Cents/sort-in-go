@@ -32,6 +32,8 @@ Given an array [3,1,2]:
 func Sort(arr []int ) []int {
 	// Iterate for each element - 1, don't need to do run over the entire array because the last item is already sorted.
 	for i := 0; i < len(arr) -1; i++ {
+		// Can safely only sort len(arr) -1 -i times because the largest unsorted element is shuffled to the end of the
+		// slice after every pass.
 		for j := 0; j < len(arr) - 1 - i; j++ {
 			if arr[j] > arr[j+1] {
 				swap(arr, j, j+1)

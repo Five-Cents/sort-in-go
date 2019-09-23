@@ -5,6 +5,7 @@ import (
 	"reflect"
 	"sort-in-go/bubble"
 	"sort-in-go/insertion"
+	"sort-in-go/selection"
 	"testing"
 )
 
@@ -17,14 +18,20 @@ func TestSort(t *testing.T) {
 		}
 	}
 
-	t.Run("Bubble Sort successfully sorts [6,9,3,5]", func(t *testing.T) {
+	t.Run("Bubble Sort successfully sorts [6,9,3,5,3]", func(t *testing.T) {
 		got := insertion.Sort([]int{6, 9, 3, 5, 3})
 		want := []int{3, 3, 5, 6, 9}
 		assertion(t, got, want)
 	})
 
-	t.Run("Insertion Sort successfully sorts [6,9,3,5]", func(t *testing.T) {
+	t.Run("Insertion Sort successfully sorts [6,9,3,5,3]", func(t *testing.T) {
 		got := insertion.Sort([]int{6, 9, 3, 5, 3})
+		want := []int{3, 3, 5, 6, 9}
+		assertion(t, got, want)
+	})
+
+	t.Run("Selection Sort successfully sorts [6,9,3,5,3]", func(t *testing.T) {
+		got := selection.Sort([]int{6, 9, 3, 5, 3})
 		want := []int{3, 3, 5, 6, 9}
 		assertion(t, got, want)
 	})
@@ -46,4 +53,13 @@ func BenchmarkInsertionSort(b *testing.B) {
 	}
 	b.ResetTimer()
 	insertion.Sort(s)
+}
+
+func BenchmarkSelectionSort(b *testing.B) {
+	s := make([]int, 10000)
+	for i := range s {
+		s[i] = rand.Intn(10000)
+	}
+	b.ResetTimer()
+	selection.Sort(s)
 }

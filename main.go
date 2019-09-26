@@ -2,12 +2,11 @@ package main
 
 import (
 	"fmt"
-	"sort-in-go/bubble"
-	"sort-in-go/insertion"
+	"sort-in-go/merge"
 )
 
 func main() {
-	arr := []int{3, 2, 6, 7, 1}
-	fmt.Println(bubble.Sort(arr))
-	fmt.Println(insertion.Sort(arr))
+	arr := []int{6, 9, 3, 5, 3}
+	//fmt.Println(bubble.Sort(arr))
+	fmt.Println(merge.Sort(arr))
 }

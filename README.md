@@ -1,3 +1,5 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Five-Cents/sort-in-go) 
+
 Some sorting algorithms implemented in golang. Currently, []int is the only accepted type.
 
 Run tests with `go test`.
